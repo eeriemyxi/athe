@@ -1,21 +1,26 @@
 # Athe
-Uses an API from [feldarkrealms](feldarkrealms.com) to generate fake words. It is
-basically a TUI front-end for their fake word generator.
+
+Uses an API from [feldarkrealms](https://feldarkrealms.com) to generate fake words. It
+is basically a TUI front-end for their fake word generator.
 
 # Features
+
 - flags to customize word generation.
 - cross-platform copy to clipboard feature.
   - On Linux, the library requires you to have `xsel` package installed.
 
 # How To Install
+
 ```
 git clone --depth 1 <REPO URL>
 cd athe
 deno run install
 ```
+
 Deno (v2) runtime is required for it to run.
 
 # Command-Line Arguments
+
 ```
 athe - generate fake words, fetched from feldarkrealms(.com).
 
