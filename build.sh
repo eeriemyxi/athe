@@ -6,6 +6,6 @@ NAME="athe.bin"
 mkdir -p bin
 
 for target in "${TARGETS[@]}"; do
-    echo "deno compile --target=$target --allow-net --allow-run main.ts --output ./bin/$target-$NAME"
+    echo "deno compile --target=$target --allow-net --allow-run --output ./bin/$target-$NAME main.ts"
 done
 
