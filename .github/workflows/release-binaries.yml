@@ -1,0 +1,31 @@
+on:
+    push:
+        tags:
+            - "v*"
+name: Upload Binaries to Release
+jobs:
+    build:
+        permissions: write-all
+        name: Upload Binaries to Release
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Setup Deno
+              uses: denoland/setup-deno@v2
+              with:
+                  deno-version: v2.x
+
+            - name: Build Binaries
+              run: sh build.sh
+
+            - name: Upload Binaries to Release
+              uses: softprops/action-gh-release@v2
+              with:
+                  files: |
+                      bin/x86_64-unknown-linux-gnu-athe.bin
+                      bin/aarch64-unknown-linux-gnu-athe.bin
+                      bin/x86_64-pc-windows-msvc-athe.bin
+                      bin/x86_64-apple-darwin-athe.bin
+                      bin/aarch64-apple-darwin-athe.bin
