@@ -1,4 +1,5 @@
 # Athe
+![](https://files.catbox.moe/rrnbsy.png)
 
 Uses an API from [feldarkrealms](https://feldarkrealms.com) to generate fake words. It
 is basically a command-line interface for their fake word generator.
