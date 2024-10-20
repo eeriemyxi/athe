@@ -1,7 +1,7 @@
-import { parseArgs} from "jsr:@std/cli";
+import { parseArgs } from "jsr:@std/cli";
 import { Spinner } from "jsr:@std/cli/unstable-spinner";
 import * as clipboard from "https://deno.land/x/copy_paste@v1.1.3/mod.ts";
-import * as constants from "./constants.ts"
+import * as constants from "./constants.ts";
 
 const Specification = { lang: "English", words: 10, length: 6 };
 const HELP_DESC = [
@@ -65,11 +65,17 @@ if (import.meta.main) {
         matches.map((match) => [alphabet.shift(), match[1]]),
     );
 
-    console.log(constants.AnsiColor.WHITE+ "Generated Words" + constants.AnsiColor.RESET);
+    console.log(
+        constants.AnsiColor.WHITE + "Generated Words" +
+            constants.AnsiColor.RESET,
+    );
     console.log(
         Array.from(
             Object.entries(matches_obj).map((entry) =>
-                `(${constants.AnsiColor.CYAN + entry[0] + constants.AnsiColor.RESET}) ${entry[1]}`
+                `(${
+                    constants.AnsiColor.CYAN + entry[0] +
+                    constants.AnsiColor.RESET
+                }) ${entry[1]}`
             ),
         ).join("\n"),
     );

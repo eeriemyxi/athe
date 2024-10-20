@@ -1,8 +1,9 @@
 # Athe
+
 ![](https://files.catbox.moe/rrnbsy.png)
 
-Uses an API from [feldarkrealms](https://feldarkrealms.com) to generate fake words. It
-is basically a command-line interface for their fake word generator.
+Uses an API from [feldarkrealms](https://feldarkrealms.com) to generate fake
+words. It is basically a command-line interface for their fake word generator.
 
 # Features
 
@@ -20,7 +21,8 @@ deno run install
 
 Deno (v2) runtime is required for it to run.
 
-You can also get self-constained executables from [GitHub Releases](https://github.com/eeriemyxi/athe/releases). Keep in mind they
+You can also get self-constained executables from
+[GitHub Releases](https://github.com/eeriemyxi/athe/releases). Keep in mind they
 are large in size for what little functionality this program has to offer.
 
 # Command-Line Arguments

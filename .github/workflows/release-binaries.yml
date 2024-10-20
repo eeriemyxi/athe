@@ -18,7 +18,7 @@ jobs:
                   deno-version: v2.x
 
             - name: Build Binaries
-              run: chmod +x build.sh && ./build.sh 
+              run: chmod +x build.sh && ./build.sh
 
             - name: Upload Binaries to Release
               uses: softprops/action-gh-release@v2
