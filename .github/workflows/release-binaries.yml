@@ -17,6 +17,10 @@ jobs:
               with:
                   deno-version: v2.x
 
+            - name: Setup Fish Shell
+              uses: fish-actions/install-fish@v1.1.0
+            
+
             - name: Build Binaries
               run: chmod +x build.sh && ./build.sh
 
@@ -24,8 +28,5 @@ jobs:
               uses: softprops/action-gh-release@v2
               with:
                   files: |
-                      bin/x86_64-unknown-linux-gnu-athe.bin
-                      bin/aarch64-unknown-linux-gnu-athe.bin
-                      bin/x86_64-pc-windows-msvc-athe.bin
-                      bin/x86_64-apple-darwin-athe.bin
-                      bin/aarch64-apple-darwin-athe.bin
+                      bin/*.bin
+                      bin/*.exe
