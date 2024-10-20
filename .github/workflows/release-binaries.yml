@@ -21,7 +21,7 @@ jobs:
               uses: fish-actions/install-fish@v1.1.0
 
             - name: Build Binaries
-              run: chmod +x build.fish && ./build.fish
+              run: chmod +x build.fish && fish ./build.fish
 
             - name: Upload Binaries to Release
               uses: softprops/action-gh-release@v2
