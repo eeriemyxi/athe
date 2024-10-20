@@ -1,25 +1,8 @@
-import { parseArgs } from "jsr:@std/cli/parse-args";
-import { Spinner } from "https://deno.land/std@0.224.0/cli/mod.ts";
-import * as clipboard from "https://deno.land/x/copy_paste/mod.ts";
+import { parseArgs} from "jsr:@std/cli";
+import { Spinner } from "jsr:@std/cli/unstable-spinner";
+import * as clipboard from "https://deno.land/x/copy_paste@v1.1.3/mod.ts";
+import * as constants from "./constants.ts"
 
-const ALPHABET = Array.from(
-    { length: 26 },
-    (_, i) => String.fromCharCode(i + 97),
-);
-const COLORS = {
-    black: "\u001b[30m",
-    red: "\u001b[31m",
-    green: "\u001b[32m",
-    yellow: "\u001b[33m",
-    blue: "\u001b[34m",
-    magenta: "\u001b[35m",
-    cyan: "\u001b[36m",
-    white: "\u001b[37m",
-    gray: "\u001b[90m",
-    reset: "\u001b[0m",
-};
-
-const WORD_HTML_PATTERN_RE: RegExp = />(\w+)</gm;
 const Specification = { lang: "English", words: 10, length: 6 };
 const HELP_DESC = [
     "athe - generate fake words, fetched from feldarkrealms(.com).\n",
@@ -59,7 +42,7 @@ Specification.length = <number> flags.L;
 const API_URL = "https://feldarkrealms.com/src/words.php";
 
 if (import.meta.main) {
-    const alphabet = ALPHABET.slice();
+    const alphabet = constants.ALPHABET.slice();
     const spinner = new Spinner({
         message: "Fetching names from feldarkrealms...",
     });
@@ -77,16 +60,16 @@ if (import.meta.main) {
     const text = await response.text();
     spinner.stop();
 
-    const matches = text.matchAll(WORD_HTML_PATTERN_RE);
+    const matches = text.matchAll(constants.WORD_HTML_PATTERN_RE);
     const matches_obj = Object.fromEntries(
         matches.map((match) => [alphabet.shift(), match[1]]),
     );
 
-    console.log(COLORS.white + "Generated Words" + COLORS.reset);
+    console.log(constants.AnsiColor.WHITE+ "Generated Words" + constants.AnsiColor.RESET);
     console.log(
         Array.from(
             Object.entries(matches_obj).map((entry) =>
-                `(${COLORS.cyan + entry[0] + COLORS.reset}) ${entry[1]}`
+                `(${constants.AnsiColor.CYAN + entry[0] + constants.AnsiColor.RESET}) ${entry[1]}`
             ),
         ).join("\n"),
     );
