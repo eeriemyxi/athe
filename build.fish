@@ -1,4 +1,4 @@
-# #!/usr/bin/fish
+#!/usr/bin/fish
 
 set TARGETS \
     x86_64-unknown-linux-gnu \
