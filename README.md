@@ -21,7 +21,7 @@ deno run install
 
 Deno (v2) runtime is required for it to run.
 
-You can also get self-constained executables from
+You can also get self-contained executables from
 [GitHub Releases](https://github.com/eeriemyxi/athe/releases). Keep in mind they
 are large in size for what little functionality this program has to offer.
 
